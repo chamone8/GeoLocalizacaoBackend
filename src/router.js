@@ -24,7 +24,7 @@ routes.post('/devs', async (request, response) => {
         avatar_url,
         bio,
         techs: techsArray,
-        location
+        location,
     });
 
     return response.json(dev);
