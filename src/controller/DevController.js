@@ -44,10 +44,22 @@ module.exports = {
 
     async delete(req, res) {
 
-        await Dev.findByIdAndDelete(req.paramas._id).then("Deletado");
+        const dev = await Dev.deleteOne({ _id: req.params.id });
 
-        return res.json({ message: "deletadp" })
+        return res.json({ messagem: "Deletado" })
 
-    }
+    },
+
+    // async update(req, res) {
+
+    //     const dev = await Dev.findByIdAndUpdate(req.params.id, $set: {
+    //          name = req.body.name,
+    //     }
+            
+    //         );
+       
+    //     console.log(dev)
+    //     return res.json({ dev });
+    // }
 
 }
