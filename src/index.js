@@ -4,7 +4,7 @@ const mongoose  = require("mongoose");
 const router = require('./router')
 const cors = require('cors');
 
-
+const server = require('http').Server(app);
 
 //conexão com o banco
 mongoose.set('useCreateIndex', true);
@@ -21,6 +21,4 @@ app.use(router);//definindo a rota
 
 
 
-app.listen(51, function(){
-    console.log("conectado");
-});
+server.listen(process.eventNames.PORT || 51);
