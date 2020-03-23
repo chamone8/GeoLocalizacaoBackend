@@ -9,7 +9,9 @@ module.exports = {
     async index(req, res) {
         let dev = await Dev.find();
 
+        console.log("index");
         return res.json(dev);
+        
     },
 
 
@@ -38,7 +40,7 @@ module.exports = {
                 techs: techsArray,
                 location,
             });
-
+            console.log("DEV", dev)
 
 
             // const sendSocketMessageTo = findConnectios(
@@ -57,7 +59,7 @@ module.exports = {
 
         await Dev.findByIdAndDelete(req.paramas._id).then("Deletado");
 
-        return res.json({ message: "deletadp" })
+        return res.json({ message: "deletado" })
 
     }
 

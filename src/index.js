@@ -3,13 +3,16 @@ const mongoose  = require("mongoose");
 const router = require('./router');
 const http = require('http');
 const cors = require('cors');
-const {setupWebSocket} = require('./websocket');
+//const {setupWebSocket} = require('./websocket');
 
 
 const app = express();
 const server = http.Server(app); //const server = require('http').Server(app) seriam a mesma coisa
 
-setupWebSocket(server);
+//const io = require('socket.io')(server)
+
+
+//setupWebSocket(server);
 
 //conexão com o banco
 mongoose.set('useCreateIndex', true);
