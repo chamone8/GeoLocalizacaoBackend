@@ -1,18 +1,14 @@
 const express = require("express");
 const mongoose  = require("mongoose");
 const router = require('./router');
-const http = require('http');
-const cors = require('cors');
-//const {setupWebSocket} = require('./websocket');
+// const http = require('http');
+// const cors = require('cors');
 
 
 const app = express();
-const server = http.Server(app); //const server = require('http').Server(app) seriam a mesma coisa
-
-//const io = require('socket.io')(server)
+//const server = require('http').Server(app); // const server = http.Server(app)  seriam a mesma coisa
 
 
-//setupWebSocket(server);
 
 //conexão com o banco
 mongoose.set('useCreateIndex', true);
@@ -20,8 +16,9 @@ mongoose.connect("mongodb+srv://admin:root@node-v001-nwj0m.mongodb.net/GeoLocali
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+
 // o cors é pra api e pro frontend axios
-app.use(cors());
+//app.use(cors());
 
 app.use(express.json());//pra entender quando o corpo for json
 app.use(router);//definindo a rota
@@ -29,4 +26,4 @@ app.use(router);//definindo a rota
 
 
 
-server.listen(process.env.PORT || 51);
+app.listen(31);
