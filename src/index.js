@@ -26,4 +26,4 @@ app.use(router);//definindo a rota
 
 
 
-app.listen(31);
+server.listen(process.env.PORT || 31);
