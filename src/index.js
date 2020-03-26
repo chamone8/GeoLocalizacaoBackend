@@ -6,6 +6,10 @@ const cors = require('cors');
 
 
 const app = express();
+
+// o cors é pra api e pro frontend axios
+app.use(cors());
+
 const server = require('http').Server(app); // const server = http.Server(app)  seriam a mesma coisa
 
 
@@ -17,8 +21,7 @@ mongoose.connect("mongodb+srv://admin:root@node-v001-nwj0m.mongodb.net/GeoLocali
     useUnifiedTopology: true
 });
 
-// o cors é pra api e pro frontend axios
-app.use(cors());
+
 
 app.use(express.json());//pra entender quando o corpo for json
 app.use(router);//definindo a rota
