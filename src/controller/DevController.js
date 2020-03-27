@@ -22,10 +22,7 @@ module.exports = {
         let dev = await Dev.findOne({ github_username });//Verifica se existe um usuario ja cadastrado
         
         if (!dev) {
-            
             const apiResponse = await axios.get(`https://api.github.com/users/${github_username}`)
-            console.log("test");
-            console.log(apiResponse)
             const { name = login, avatar_url, bio } = apiResponse.data; // desistrutura o response da api e pega somente as variaveis necessarias
             const techsArray = parseStringArray(techs); // trata de string pra array
             //Serve pra prgar as cordenadas 
@@ -43,10 +40,10 @@ module.exports = {
                 techs: techsArray,
                 location,
             });
-        
+            return response.json(dev);
         }
 
-        return response.json(dev);
+        
     },
 
     async delete(req, res) {
